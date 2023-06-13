@@ -24,26 +24,26 @@ The process is as follows, given the JSON payload that needs to be sent (contain
 5. The primary system includes the base64-encoded signature in the request header labeled as *X-Signature*.
 
 **Java signature sample**
-```plaintext
+```
 import java.nio.charset.StandardCharsets;
 import java.security.*;
 import java.util.Base64;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        // Call the method here
-        String xSignature = generateXSignature();
-        
-        // Print the X-Signature
+         String jsonPayload = ; // Replace "" with your actual payload
+        String xSignature = generateXSignature(jsonPayload);
+    
+        // X-Signature to use in API-Gateway
         System.out.println("X-Signature: " + xSignature);
     }
 
-    public static String generateXSignature() throws Exception {
+    public static String generateXSignature(String payload) throws Exception {
         // load the key
         PrivateKey key = primarySystem.getCertificate(); // Replace "primarySystem.getCertificate()" with the actual code to load the key
         
         // canonicalize
-        String payload = ""; // Replace "" with your actual payload
+
         String normalizedJson = payload.replaceAll("[\\n\\r\\t ]", "");
         byte[] bytes = normalizedJson.getBytes(StandardCharsets.UTF_8);
         
