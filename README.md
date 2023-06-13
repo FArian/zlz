@@ -2,4 +2,4 @@
 
 # Authorized user
 The authorized users are onboarded in ZLZ identity.
-They access the API by sending an OneTime password (OTP as JSON Web Token - JWT) generated from the Zentral Labor Zurich(ZLZ) (prod - test).
+They access the API by sending an OneTime password (OTP) generated from the Zentral Labor Zurich(ZLZ) (prod - test).
