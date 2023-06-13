@@ -17,14 +17,16 @@ By implementing this TLS tunnel with single-way authentication and utilizing the
 The data sent to the REST API is signed using the private key of the certificate issued by the primary system certificate.
 
 The process is as follows, given the JSON payload that needs to be sent (containing data for the Order Service, including the one-time password):
-1. The primary system creates a canonicalized text representation of the payload by removing all spaces, tabs, carriage returns, and newlines. The regular expression /[\n\r\t ]/gm can be utilized for this purpose.
+1. The primary system creates a canonicalized text representation of the payload by removing all spaces, tabs, carriage returns, and newlines. The regular expression ```/[\n\r\t ]/gm``` can be utilized for this purpose.
 2. The primary system obtains a UTF-8 byte representation of the canonicalized text by encoding it.
-3. The primary system signs the byte representation using the "RSASSA-PKCS1-v1_5" algorithm from [ RFC 3447](https://datatracker.ietf.org/doc/html/rfc3447). In most implementations, this algorithm is commonly referred to as "SHA256withRSA".
+3. The primary system signs the byte representation using the ```RSASSA-PKCS1-v1_5``` algorithm from [ RFC 3447](https://datatracker.ietf.org/doc/html/rfc3447). In most implementations, this algorithm is commonly referred to as ```SHA256withRSA```.
 4. The primary system encodes the signature as a base64 string.
-5. The primary system includes the base64-encoded signature in the request header labeled as *X-Signature*.
+5. The primary system includes the base64-encoded signature in the request header labeled as ```X-Signature```.
 
 **Java signature sample**
-```
+
+<pre><code class="java">
+
 import java.nio.charset.StandardCharsets;
 import java.security.*;
 import java.util.Base64;
@@ -57,6 +59,6 @@ public class Main {
         return xSignature;
     }
 }
+</code></pre>
 
-```
 
