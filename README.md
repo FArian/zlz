@@ -1,4 +1,5 @@
-# API documentation ZLZ API-Gateway
+# API documentation [ZLZ](https://www.zlz.ch/) and [ZetLab](https://www.zetlab.ch/) API-Gateway
+
 ## Security architecture:
 
 ## Authorized user
