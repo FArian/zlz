@@ -25,7 +25,7 @@ The process is as follows, given the JSON payload that needs to be sent (contain
 
 **Java signature sample**
 
-<pre><code class="java">
+```java
 
 import java.nio.charset.StandardCharsets;
 import java.security.*;
@@ -59,6 +59,6 @@ public class Main {
         return xSignature;
     }
 }
-</code></pre>
+```
 
 
